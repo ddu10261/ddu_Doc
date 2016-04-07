@@ -1,0 +1,31 @@
+----------------------java instructions--------------------------------
+
+To install jdk 7:
+
+I had to download from http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz
+
+Then  sudo mv /usr/lib
+
+ sudo tar -xzvf jdk-7u79-b15/jdk-7u79-linux-i586.tar.gz
+
+go ahead and remove the zipped file now since its somewhat large - sudo rm jdk-7u79-b15/jdk-7u79-linux-i586.tar.gz
+
+then set java path:
+export JAVA_HOME=/lib/jdk1.7.0_79/bin/java (make sure it ends in /bin/java)
+
+NOTE: You maybe have to relog for the above command to go through.
+THEN, if multiple javas are installed:
+
+use 'sudo update-alternatives --config java' to see what versions of java are installed
+
+if wrong version, it is not neccessary to uninstall, can just switch with this command.
+
+sudo alternatives --install /usr/bin/java java /lib/jdk1.7.0_79/bin/java 100
+
+
+
+these parameters explained:
+/usr/bin/java - common area of java. Usually first return of 'whereis java'
+java -just, java. You can use this alternatives tool for other programs too, here we are specifying java
+/lib/jdk1.7.0_79/bin/java - where you unpacked the tarball of java. Should be same as JAVA_HOME
+100 - priority number of alternative, not very important, can manually set.
