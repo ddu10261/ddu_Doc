@@ -1,0 +1,19 @@
+input {
+   file {
+        path => "/opt/log/logstash-tutorial-dataset"
+        start_position => beginning        
+    }
+   # stdin { } 
+}
+filter {
+    grok {
+        match => { "message" => "%{COMBINEDAPACHELOG}"}
+    }
+}
+output {
+    elasticsearch { 
+        hosts => ["10.1.1.92:8720"] 
+        index => "test"
+}
+    stdout { codec => rubydebug }
+}
