@@ -12,7 +12,7 @@ filter {
 }
 output {
     elasticsearch { 
-        hosts => ["10.1.1.92:8720"] 
+        hosts => ["localhost:8720"] //change the host to hostname or you host IP/ adjust the port number on your own 
         index => "test"
 }
     stdout { codec => rubydebug }
